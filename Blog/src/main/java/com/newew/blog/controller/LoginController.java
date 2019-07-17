@@ -78,9 +78,10 @@ public class LoginController {
 	}
 	//로그아웃
 	@RequestMapping(value = "/main/logout")
-	public String logout(HttpSession session)throws IOException {
+	public String logout(HttpSession session, Model model)throws IOException {
 	System.out.println("여기는 logout");
 	session.invalidate(); //세션 삭제 
+	model.addAttribute("url","http://localhost:8080/main/login");
 	return "/main/login";
 	}
 }
